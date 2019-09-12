@@ -23,6 +23,8 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
+$Some math = O(n^2)$
+
 [Link](url) and ![Image](src)
 ```
 
