@@ -1,4 +1,2 @@
 theme: jekyll-theme-minimal
 markdown: kramdown
-mathjax: true
-comments: true
