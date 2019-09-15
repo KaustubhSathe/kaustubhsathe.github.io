@@ -2,5 +2,5 @@
 
 ## Data Structures 
 
-- [Binary Search Tree](Data_Structures/BST.md)
+- [Binary Search Tree](Data_Structures/BST.html)
 
