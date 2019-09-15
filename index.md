@@ -1,1 +1,1 @@
-[BST](BST.html)
+[BST](BST.md)
