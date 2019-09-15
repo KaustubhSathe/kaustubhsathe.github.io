@@ -2,66 +2,64 @@
 
 **Binary Search Tree** is a node-based binary tree data structure which has the following properties:
 
-> **Traversals** 
-> * Pre-order  : node,left,right (top to bottom traversal)
-> * In-order   : left,node,right (left to right traversal)
-> * Out-order  : right,node,left (right to left traversal)
-> * Post-order : left,right,node (bottom to top traversal)
+**Traversals** 
+* Pre-order  : node,left,right (top to bottom traversal)
+* In-order   : left,node,right (left to right traversal)
+* Out-order  : right,node,left (right to left traversal)
+* Post-order : left,right,node (bottom to top traversal)
 
-> **Properties**
-> * The left subtree of a node contains only nodes with keys lesser than the node’s key.
-> * The right subtree of a node contains only nodes with keys greater than the node’s key.
-> * The left and right subtree each must also be a binary search tree.
-> * Inorder traversal produces sorted output ascending.
-> * We can construct a BST with only preorder,postorder or level order traversal
+**Properties**
+* The left subtree of a node contains only nodes with keys lesser than the node’s key.
+* The right subtree of a node contains only nodes with keys greater than the node’s key.
+* The left and right subtree each must also be a binary search tree.
+* Inorder traversal produces sorted output ascending.
+* We can construct a BST with only preorder,postorder or level order traversal
 
 
 
->  ### Construction of BST using preorder traversal
->
->
->  <img src="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/BST.png" width="400" height="320"> $Preorder Traversal(5,2,1,3,12,9,21,19,25)$
-> 
->  First element is always the root in preorder traversal (root,left,right). So in this example the root is 5, then we go to the left side which contains all the keys less than the root and then right which contains all the more than the root. So in this case (2,1,3) in left and (12,9,21,1,25) in right. At each root we need to find the index of the first key which is greater than the root. If we do it naively using a single for loop at root then worst case time complexity will be $O(n^2)$. But if we preprocess this information and finding the index becomes $O(1)$ operation we can do this task in $O(n)$. We do this preprocessing using stack.Another approach is that we keep a range $(min,max)$ for each node and if the key is within that range then create a node with the key and its left child will have range as $(min,key]$ and right child will have key as $[key+1,max)$.
-> 
-> [Leetcode Problem [1008] Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/)
-> 
->  ```cpp
-> class Solution {
-> public:
->     TreeNode* bstFromPreorder(vector<int>& preorder) {
->         vector<int> idx;idx.assign(preorder.size()+10,preorder.size());
->         stack<int> pq;
->         TreeNode* head = nullptr;
->         for(int i = 0;i<preorder.size();i++){
->             if(pq.empty()){
->                 pq.emplace(i);
->                 continue;
->             }
->             while(!pq.empty() && preorder[i] > preorder[pq.top()]){
->                 idx[pq.top()] = i;
->                 pq.pop();
->             }
->             pq.emplace(i);
->         }
->         function<TreeNode*(int,int)> rec = [&](int tl,int tr){
->             if(tl < tr){
->                 TreeNode* temp = new TreeNode(preorder[tl]);
->                 temp->left = rec(tl+1,idx[tl]-1);
->                 temp->right = rec(idx[tl],tr);
->                 return temp;
->             }else if(tl == tr){
->                 TreeNode* temp = new TreeNode(preorder[tl]);
->                 return temp;
->             }
->             TreeNode* temp = nullptr;
->             return temp;
->         };
->         head = rec(0,preorder.size()-1);
->         return head;
->     }
-> };
->  ```
+ ### Construction of BST using preorder traversal
+ <img src="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/BST.png" width="400" height="320"> $Preorder Traversal(5,2,1,3,12,9,21,19,25)$
+
+ First element is always the root in preorder traversal (root,left,right). So in this example the root is 5, then we go to the left side which contains all the keys less than the root and then right which contains all the more than the root. So in this case (2,1,3) in left and (12,9,21,1,25) in right. At each root we need to find the index of the first key which is greater than the root. If we do it naively using a single for loop at root then worst case time complexity will be $O(n^2)$. But if we preprocess this information and finding the index becomes $O(1)$ operation we can do this task in $O(n)$. We do this preprocessing using stack.Another approach is that we keep a range $(min,max)$ for each node and if the key is within that range then create a node with the key and its left child will have range as $(min,key]$ and right child will have key as $[key+1,max)$.
+
+[Leetcode Problem [1008] Construct Binary Search Tree from Preorder Traversal](https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/description/)
+
+ ```cpp
+class Solution {
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        vector<int> idx;idx.assign(preorder.size()+10,preorder.size());
+        stack<int> pq;
+        TreeNode* head = nullptr;
+        for(int i = 0;i<preorder.size();i++){
+            if(pq.empty()){
+                pq.emplace(i);
+                continue;
+            }
+            while(!pq.empty() && preorder[i] > preorder[pq.top()]){
+                idx[pq.top()] = i;
+                pq.pop();
+            }
+            pq.emplace(i);
+        }
+        function<TreeNode*(int,int)> rec = [&](int tl,int tr){
+            if(tl < tr){
+                TreeNode* temp = new TreeNode(preorder[tl]);
+                temp->left = rec(tl+1,idx[tl]-1);
+                temp->right = rec(idx[tl],tr);
+                return temp;
+            }else if(tl == tr){
+                TreeNode* temp = new TreeNode(preorder[tl]);
+                return temp;
+            }
+            TreeNode* temp = nullptr;
+            return temp;
+        };
+        head = rec(0,preorder.size()-1);
+        return head;
+    }
+};
+ ```
 
 
 ### Find postorder traversal of BST from preorder traversal
