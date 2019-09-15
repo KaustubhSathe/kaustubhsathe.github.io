@@ -2,7 +2,7 @@
 
 **Binary Search Tree** is a node-based binary tree data structure which has the following properties:
 
-**Traversals** 
+**Traversals**
 * Pre-order  : node,left,right (top to bottom traversal)
 * In-order   : left,node,right (left to right traversal)
 * Out-order  : right,node,left (right to left traversal)
@@ -81,19 +81,19 @@ Efficient Approach : We keep range $(min,max)$ for each key and if the key has l
 *       BST(vector<int>& inp) : constructs BST on given input
 * - Utils
 *       insert(T val) : inserts val into BST
-* - Functions      
+* - Functions
 *       vector<T> inOrder() : returns inorder traversal of BST
 *       vector<T> outOrder() : returns outorder traversal of BST
 *       vector<T> preOrder() : returns preorder traversal of BST
 *       vector<T> postOrder() : returns postorder traversal of BST
 *       void bstFromPreOrder(vector<T>& preOrder) : constructs BST from given pre-order traversal
-*       
-*       
-*       
-*       
-*       
-*       
-*       
+*
+*
+*
+*
+*
+*
+*
 ***********************************************************/
 template<class T> struct BST{
     /*--------------------Data Fields--------------------*/
@@ -134,7 +134,7 @@ template<class T> struct BST{
         function<void(Node*)> rec = [&](Node* itr){
             if(itr == nullptr)
                 return (Node*)nullptr;
-            
+
             rec(itr->left);
             ans.push_back(itr->key);
             rec(itr->right);
@@ -147,7 +147,7 @@ template<class T> struct BST{
         function<void(Node*)> rec = [&](Node* itr){
             if(itr == nullptr)
                 return (Node*)nullptr;
-            
+
             rec(itr->right);
             ans.push_back(itr->key);
             rec(itr->left);
@@ -160,7 +160,7 @@ template<class T> struct BST{
         function<void(Node*)> rec = [&](Node* itr){
             if(itr == nullptr)
                 return (Node*)nullptr;
-            
+
             ans.push_back(itr->key);
             rec(itr->left);
             rec(itr->right);
@@ -173,8 +173,8 @@ template<class T> struct BST{
         function<void(Node*)> rec = [&](Node* itr){
             if(itr == nullptr)
                 return (Node*)nullptr;
-            
-            
+
+
             rec(itr->left);
             rec(itr->right);
             ans.push_back(itr->key);
@@ -182,7 +182,7 @@ template<class T> struct BST{
         rec(head);
         return ans;
     }
-    void bstFromPreorder(vector<T>& preorder) {    
+    void bstFromPreorder(vector<T>& preorder) {
        vector<T> idx;idx.assign(preorder.size()+10,preorder.size());
        stack<T> pq;
        head = nullptr;
@@ -215,10 +215,3 @@ template<class T> struct BST{
    }
 };
 ```
-
-
-
- 
-   
- 
- 
