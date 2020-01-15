@@ -1,19 +1,35 @@
-@import url(
-  https://fonts.googleapis.com/css?family=Open+Sans:300,
-  300italic,
-  regular,
-  italic,
-  600,
-  600italic,
-  700,
-  700italic,
-  800,
-  800italic
-);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic);
 
-#TopName {
-  text-align: center;
-  color: black;
-  font-family: "Open Sans";
-  font-weight: 500;
+
+.wrapper{
+  position: relative;
+  top: 100px;
+  align-self: auto;
+  margin: auto;
+  
+  width: 500px;
+  height: 500px;
 }
+
+#dpPic { 
+  position: relative;
+  width: 135px;
+  height: 135px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  top: 1px;
+  opacity: 1;
+  transition: 0.25s ease-in-out;
+}
+#dpPic:hover{
+  opacity: 0.75;
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+
+
