@@ -1,60 +1,67 @@
-# Researcher
+<p align="center">
+    <h2 align="center">Indigo Minimalist Jekyll Template - <a href="http://sergiokopplin.github.io/indigo/">Demo</a> · <a href="https://travis-ci.org/sergiokopplin/indigo"><img src="https://camo.githubusercontent.com/5393485b732749b3499264168fa8af60166071e8/68747470733a2f2f7472617669732d63692e6f72672f73657267696f6b6f70706c696e2f696e6469676f2e7376673f6272616e63683d67682d7061676573" alt="Build Status" data-canonical-src="https://travis-ci.org/sergiokopplin/indigo.svg?branch=gh-pages" style="max-width:100%;"></a></h2>
+</p>
 
-### [Demo Website](http://ankitsultana.com/researcher)
+<p align="center">This is a simple and minimalist template for Jekyll for those who likes to eat noodles.</p>
 
-A clean, single column, monospace resume template built for jekyll
+***
 
-### Installation
+<p align="center">
+    <b><a href="README.md#what-has-inside">What has inside</a></b>
+    |
+    <b><a href="README.md#setup">Setup</a></b>
+    |
+    <b><a href="README.md#settings">Settings</a></b>
+    |
+    <b><a href="README.md#how-to">How to</a></b>
+</p>
 
-Simply fork the repository and edit away.
+<p align="center">
+    <img src="https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png" />
+</p>
 
-#### Installation via remote themes
+## What has inside
 
-* Just setting `remote_theme: ankitsultana/researcher@gem` in `_config.yml` should work. Although in that case, I am not sure how
-you would build your site locally for testing. If you know how, open up an issue and let me know.
-* For more info, [refer this](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/).
+- [Jekyll](https://jekyllrb.com/), [Sass](http://sass-lang.com/) ~[RSCSS](http://rscss.io/)~ and [SVG](https://www.w3.org/Graphics/SVG/)
+- Tests with [Travis](https://travis-ci.org/)
+- Google Speed: [98/100](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F);
+- No JS. :sunglasses:
 
-### Customization
+## Setup
 
-* You can edit the `.md` (markdown) files as you see fit. You can also add some other markdown file, say `foo.md` in the root directory of the repository. It will then be accessible like so `{{ url of your website }}/foo`.
+0. :star: to the project. :metal:
+2. Fork the project [Indigo](https://github.com/sergiokopplin/indigo/fork)
+3. Edit `_config.yml` with your data (check <a href="README.md#settings">settings</a> section)
+4. Write some posts :bowtie:
 
-* You can of course remove `contact.md` if you don't want it
+If you want to test locally on your machine, do the following steps also:
 
-* To set the heading, edit the `title` variable in `_config.yml`
+1. Install [Jekyll](http://jekyllrb.com), [NodeJS](https://nodejs.org/) and [Bundler](http://bundler.io/).
+2. Clone the forked repo on your machine
+3. Enter the cloned folder via terminal and run `bundle install`
+4. Then run `bundle exec jekyll serve --config _config.yml,_config-dev.yml`
+5. Open it in your browser: `http://localhost:4000`
+6. Test your app with `bundle exec htmlproofer ./_site`
+7. Do you want to use the [jekyll-admin](https://jekyll.github.io/jekyll-admin/) plugin to edit your posts? Go to the admin panel: `http://localhost:4000/admin`. The admin panel will not work on GitHub Pages, [only locally](https://github.com/jekyll/jekyll-admin/issues/341#issuecomment-292739469).
 
-* To edit the `links` mentioned on the navigation bar, you can edit `_config.yml`. For example:
+## Settings
+
+You must fill some informations on `_config.yml` to customize your site.
 
 ```
-nav:
- - name: "About"
-   link: "/researcher/"
- - name: "Resume"
-   link: "resume.pdf"
- - name: "Contact"
-   link: "contact"
+name: John Doe
+bio: 'A Man who travels the world eating noodles'
+picture: 'assets/images/profile.jpg'
+...
+
+and lot of other options, like width, projects, pages, read-time, tags, related posts, animations, multiple-authors, etc.
 ```
 
-* You can change the accent (color of hyperlinks) by editing the `accent` variable in `_sass/vars.scss`
+## How To?
 
-* You can setup google analytics, by setting `tracking_id` in `_config.yml`
+Check the [FAQ](./FAQ.md) if you have any doubt or problem.
 
-* To add a profile picture, make sure to give the image tag the class `profile-picture`. In other words,do it like so:
+---
+## License
 
-```html
-<img class="profile-picture" src="sherlock.jpg">
-```
-
-* You can remove/customize the footer as you like by setting the
-appropriate variables in `_config.yml`
-
-* (New in v1.2.0) You can add institute logo at the top, by setting `ins_logo` in `_config.yml`. If you want
-to adjust the logo's size, try setting `max-height` in `#ins-logo` in file `./_sass/_style.scss` to the desired
-value
-
-![Institute Logo Image Sample](https://github.com/ankitsultana/assets/raw/master/ins-logo-sample.png)
-
-**Note:** Customizing the accent color might cause merge conflicts if you later try to merge from `bk2dcradle/researcher` to fetch updates/patches etc. (applicable only if you have forked).
-
-### License
-
-[GNU GPL v3](https://github.com/bk2dcradle/researcher/blob/gh-pages/LICENSE)
+[MIT](http://kopplin.mit-license.org/) License © Sérgio Kopplin
