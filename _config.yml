@@ -16,8 +16,8 @@ resume: true
 resume-external: true
 resume-url: https://google.com/?q=my+resume
 
-url: https://kaustubhsathe.github.io
-# your url: http://USERNAME.github.io
+# url: https://kaustubhsathe.github.io
+your url: http://kaustubhsathe.github.io
 
 permalink: /:title/
 
