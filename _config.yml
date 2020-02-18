@@ -120,6 +120,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-fontawesome-svg
   - jekyll-admin
   - jekyll-paginate-v2
 
