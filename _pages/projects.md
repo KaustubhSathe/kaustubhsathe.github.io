@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: archive
 permalink: /projects/
 author_profile: true
 classes: wide
