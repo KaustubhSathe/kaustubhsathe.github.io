@@ -1,0 +1,1018 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.18.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Centroid Decomposition Explained - Kaustubh Sathe</title>
+<meta name="description" content="```cpp     #include&lt;bits/stdc++.h&gt;     #define pb push_back     #define mp make_pair     #define pii pair&lt;int,int&gt;     using namespace std; ">
+
+
+  <meta name="author" content="Kaustubh Sathe">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Kaustubh Sathe">
+<meta property="og:title" content="Centroid Decomposition Explained">
+<meta property="og:url" content="http://localhost:4000/centroid-decomposition-explained/">
+
+
+  <meta property="og:description" content="```cpp     #include&lt;bits/stdc++.h&gt;     #define pb push_back     #define mp make_pair     #define pii pair&lt;int,int&gt;     using namespace std; ">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-20T00:00:00+05:30">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/centroid-decomposition-explained/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Kaustubh Sathe",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Kaustubh Sathe Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Kaustubh Sathe
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/resume.pdf" >Resume</a>
+            </li><li class="masthead__menu-item">
+              <a href="/year-archive/" >Blog</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/profile.jpg" alt="Kaustubh Sathe" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Kaustubh Sathe</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>One man’s magic is another man’s engineering.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">BITS Pilani,Rajasthan</span>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:f2015466@pilani.bits-pilani.ac.in">
+            <meta itemprop="email" content="f2015466@pilani.bits-pilani.ac.in" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/kaustubh-sathe-b0374917a" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/KaustubhSathe" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Centroid Decomposition Explained">
+    <meta itemprop="description" content="```cpp    #include&lt;bits/stdc++.h&gt;    #define pb push_back    #define mp make_pair    #define pii pair&lt;int,int&gt;    using namespace std;">
+    <meta itemprop="datePublished" content="2020-02-20T00:00:00+05:30">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Centroid Decomposition Explained
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  9 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cp">#include&lt;bits/stdc++.h&gt;
+</span>    <span class="cp">#define pb push_back
+</span>    <span class="cp">#define mp make_pair
+</span>    <span class="cp">#define pii pair&lt;int,int&gt;
+</span>    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">bool</span> <span class="n">is_centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">nn</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">disCentroidParent</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">,</span><span class="kt">int</span> <span class="n">rootNode</span><span class="p">){</span>
+        <span class="n">disCentroidParent</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">rootNode</span><span class="p">,</span><span class="n">lvl</span><span class="p">));</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">rootNode</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>  
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">dfs2</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="n">par</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">root_centroid_tree</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+<hr />
+<ul>
+  <li>Centroid Decomposition helps us to run dfs O(n) log(n)(one from each level in centroid tree).</li>
+  <li>Caution : the dfs run for calculating some property must be run in the corresponding part of the original tree and not in the centroid tree.</li>
+  <li>This helps us to calculate some given function(sum/multiply which can vary from problem to problem) between all pairs vertices efficiently. I.e by keeping the centroid as fixed and calculating the fucntion for all paths which pass through the given centroid. When we do this for all centroid top to bottom then we can generate all the nC2 paths efficiently.</li>
+  <li>
+    <h2 id="when-the-problem-says-calculate-something-for-all-pairs-of-vartices-in-the-given-tree-it-is-may-be-possible-that-the-given-problem-be-solved-using-centroid-decomposition">When the problem says calculate something for all pairs of vartices in the given tree, it is may be possible that the given problem be solved using centroid decomposition.</h2>
+  </li>
+</ul>
+
+<h2 id="problems">Problems</h2>
+<p><strong>1. https://codeforces.com/problemset/problem/321/C</strong> 
+    <strong>Solution</strong> : Simple application, just rank each level of centroid tree with same character. Lower level gets higher rank. If number of levels &gt; 26 then Impossible.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">max_level</span><span class="p">,</span><span class="n">color</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">bool</span> <span class="n">is_centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">nn</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">){</span>
+        <span class="n">max_level</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">max_level</span><span class="p">,</span><span class="n">lvl</span><span class="p">);</span>
+        <span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">lvl</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">centroid</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">p</span><span class="p">){</span>
+                <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">root_centroid_tree</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">dfs2</span><span class="p">(</span><span class="n">root_centroid_tree</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">max_level</span> <span class="o">&gt;</span> <span class="mi">26</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Impossible"</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span><span class="p">)(</span><span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="sc">'A'</span><span class="p">);</span> 
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ch</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    
+    
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>2. https://codeforces.com/contest/342/problem/E</strong>
+    <strong>Solution</strong> : Let dp[i] denote the minimum distance to red node in the subtree of centroid i in the centroid tree.
+    1. update query paint node x red : for all ancestors i of x do dp[i] = min(dp[i],dis(x,i)). Now this update takes log^2(n) time, but can be reduced to log(n) by using the optimization technique of caching the distance between node i and all its ancestors. This distance 2d array can be constructed during the construction of centroid tree.
+    2. Finding nearest red node to node i : Let ans = INF, then for all ancestors x of i ans = min(ans,dis(i,x) + dp[x]), this will work because if the nearest red node is in the subtree of i then dis(i,i) + dp[i] will give the minimum and all its ancestors will be greater than this.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">centroid</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">bool</span> <span class="n">is_centroid</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">level</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">nn</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">disCentroidParent</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">dp</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">,</span><span class="kt">int</span> <span class="n">rootNode</span><span class="p">){</span>
+        <span class="n">disCentroidParent</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">rootNode</span><span class="p">,</span><span class="n">lvl</span><span class="p">));</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">rootNode</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>  
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">dfs2</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="n">par</span><span class="p">[</span><span class="n">q</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">itr</span> <span class="o">:</span> <span class="n">disCentroidParent</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">itr</span><span class="p">.</span><span class="n">ff</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">itr</span><span class="p">.</span><span class="n">ff</span><span class="p">],</span><span class="n">itr</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="nf">query</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">INF</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">itr</span> <span class="o">:</span> <span class="n">disCentroidParent</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">itr</span><span class="p">.</span><span class="n">ss</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">itr</span><span class="p">.</span><span class="n">ff</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">fastio</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">INF</span><span class="p">;</span>
+        <span class="c1">// freopen("input.txt", "r", stdin);</span>
+        <span class="c1">// freopen("output.txt", "w", stdout);</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">root_centroid</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">par</span><span class="p">[</span><span class="n">root_centroid</span><span class="p">]</span> <span class="o">=</span> <span class="n">root_centroid</span><span class="p">;</span>
+        <span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">m</span><span class="o">--</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">type</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">type</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+                <span class="n">update</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">query</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>3. https://codeforces.com/contest/766/problem/E (Mahmoud and a xor trip)</strong>
+<strong>Solution</strong> : First get the centroid tree of the given tree.While decomposing the given tree maintain an array d[20][2], which denotes number of vertices which have the digit at place i as 0 or 1 in d[i][0] and d[i][1]. Now add the xors of all the paths which pass through the given centroid.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">lli</span> <span class="n">a</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">ans</span><span class="p">,</span><span class="n">d</span><span class="p">[</span><span class="mi">20</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">bool</span> <span class="n">is_centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">nn</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">disCentroidParent</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">,</span><span class="kt">int</span> <span class="n">rootNode</span><span class="p">){</span>
+        <span class="n">disCentroidParent</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">rootNode</span><span class="p">,</span><span class="n">lvl</span><span class="p">));</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">rootNode</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfsCrossing</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">now</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">now</span><span class="p">){</span>
+                <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1ll</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1ll</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsCrossing</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">now</span><span class="o">^</span><span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfsAdding</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">now</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">now</span><span class="p">){</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsAdding</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">now</span><span class="o">^</span><span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>  
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">dfs2</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">((</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsCrossing</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+            <span class="n">dfsAdding</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">^</span><span class="n">a</span><span class="p">[</span><span class="n">x</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">fastio</span><span class="p">;</span>
+        <span class="c1">// freopen("input.txt", "r", stdin);</span>
+        <span class="c1">// freopen("output.txt", "w", stdout);</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">root_centroid</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span> <span class="o">+</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">0ll</span><span class="p">)</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>4. https://codeforces.com/contest/161/problem/D</strong>
+ <strong>Solution</strong> : There is dynamic programming solution to this problem(see this https://codeforces.com/contest/161/submission/66035427).But let’s solve this using centroid decomposition. While decomposing the given tree maintain an array called d[50000+5] for every centroid (you don’t actually need different array for every centroid as it won’t be memory efficient, just use the same array declared globally for every centroid) in which d[i] denotes the number of paths of with length i ending at the current centroid.Then for every centroid run a dfs in its corresponding part in the original tree(not in the centroid tree), and if we are at lvl = x then add cnt += d[k-x] to the global answer,and after adding update the given d[50000+5] array.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">lli</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">bool</span> <span class="n">is_centroid</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">par</span><span class="p">[</span><span class="mi">1000000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">nn</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">disCentroidParent</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">,</span><span class="kt">int</span> <span class="n">rootNode</span><span class="p">){</span>
+        <span class="n">disCentroidParent</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">rootNode</span><span class="p">,</span><span class="n">lvl</span><span class="p">));</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">rootNode</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="nf">dfsCross</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">){</span>
+        <span class="n">ans</span> <span class="o">+=</span> <span class="n">d</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="n">lvl</span><span class="p">];</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsCross</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfsAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">){</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">lvl</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsAdd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>  
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">dfs2</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
+        <span class="n">d</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsCross</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">dfsAdd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span> 
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+            <span class="n">centroid</span><span class="p">[</span><span class="n">q</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">fastio</span><span class="p">;</span>
+        <span class="c1">// freopen("input.txt", "r", stdin);</span>
+        <span class="c1">// freopen("output.txt", "w", stdout);</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">k</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">root_centroid</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        
+        
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>5. https://www.hackerearth.com/problem/algorithm/number-of-paths-with-specific-length-f08e78de/</strong>
+<strong>Solution</strong> : A dynamic programming solution exists but let’s first solve it using centroid decomposition.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cp">#include&lt;bits/stdc++.h&gt;
+</span>    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    <span class="cp">#define pii pair&lt;int,int&gt;
+</span>    <span class="cp">#define pb push_back
+</span>    <span class="cp">#define ff first
+</span>    <span class="cp">#define ss second
+</span>    <span class="cp">#define mp make_pair
+</span>    <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">lli</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">bool</span> <span class="n">is_centroid</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">sz</span><span class="p">[</span><span class="mi">100000</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span><span class="n">nn</span><span class="p">;</span>
+    <span class="n">lli</span> <span class="n">ans</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="n">cnt</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfsCnt</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">mask</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">32</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">ans</span><span class="p">[</span><span class="n">__builtin_popcount</span><span class="p">(</span><span class="n">mask</span> <span class="o">|</span> <span class="n">i</span><span class="p">)]</span> <span class="o">+=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsCnt</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">)</span> <span class="o">|</span> <span class="n">mask</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">dfsAdd</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">mask</span><span class="p">){</span>
+        <span class="n">cnt</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsAdd</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">,(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">)</span> <span class="o">|</span> <span class="n">mask</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>  
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">40</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        
+        <span class="n">cnt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1ll</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfsCnt</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+            <span class="n">dfsAdd</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">k</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+            <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">p</span><span class="o">&gt;&gt;</span><span class="n">c</span><span class="p">;</span><span class="n">c</span><span class="o">--</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">c</span><span class="p">));</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">c</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="n">decompose</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">k</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">" "</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>   
+</code></pre></div></div>
+
+<p><strong>6. https://wcipeg.com/problem/ioi1112</strong></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="cp">#include&lt;bits/stdc++.h&gt;
+</span>    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span> <span class="n">lli</span><span class="p">;</span>
+    <span class="cp">#define pb push_back
+</span>    <span class="cp">#define mp make_pair
+</span>    <span class="cp">#define ff first
+</span>    <span class="cp">#define ss second
+</span>    <span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mi">200000</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span> 
+    <span class="k">struct</span> <span class="n">custom_hash</span> <span class="p">{</span>
+        <span class="k">static</span> <span class="kt">uint64_t</span> <span class="n">splitmix64</span><span class="p">(</span><span class="kt">uint64_t</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// http://xorshift.di.unimi.it/splitmix64.c</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="mh">0x9e3779b97f4a7c15</span><span class="p">;</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">^</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">30</span><span class="p">))</span> <span class="o">*</span> <span class="mh">0xbf58476d1ce4e5b9</span><span class="p">;</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">^</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">27</span><span class="p">))</span> <span class="o">*</span> <span class="mh">0x94d049bb133111eb</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="o">^</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="kt">size_t</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">uint64_t</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="k">static</span> <span class="k">const</span> <span class="kt">uint64_t</span> <span class="n">FIXED_RANDOM</span> <span class="o">=</span> <span class="n">chrono</span><span class="o">::</span><span class="n">steady_clock</span><span class="o">::</span><span class="n">now</span><span class="p">().</span><span class="n">time_since_epoch</span><span class="p">().</span><span class="n">count</span><span class="p">();</span>
+            <span class="k">return</span> <span class="n">splitmix64</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">FIXED_RANDOM</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">ans</span><span class="p">,</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">sz</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">nn</span><span class="p">,</span><span class="n">cent</span><span class="p">;</span>
+    <span class="n">lli</span> <span class="n">k</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="n">lli</span><span class="o">&gt;&gt;</span> <span class="n">adj</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">lli</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span><span class="n">custom_hash</span><span class="o">&gt;</span> <span class="n">cnt</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+
+    <span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">){</span>
+        <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="nf">get_centroid</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nn</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">dfs1</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">,</span><span class="n">lli</span> <span class="n">w</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">k</span><span class="o">&gt;=</span><span class="n">w</span> <span class="o">&amp;&amp;</span> <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">].</span><span class="n">find</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span> <span class="o">!=</span> <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">].</span><span class="n">end</span><span class="p">()){</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">lvl</span> <span class="o">+</span> <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">][</span><span class="n">k</span><span class="o">-</span><span class="n">w</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs1</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">w</span> <span class="o">+</span> <span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">,</span><span class="kt">int</span> <span class="n">lvl</span><span class="p">,</span><span class="n">lli</span> <span class="n">w</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">].</span><span class="n">find</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">==</span> <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">].</span><span class="n">end</span><span class="p">()){</span>
+            <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">lvl</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">][</span><span class="n">w</span><span class="p">],</span><span class="n">lvl</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span> <span class="o">==</span> <span class="n">p</span> <span class="o">||</span> <span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">w</span> <span class="o">+</span> <span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="nf">decompose</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">){</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">nn</span> <span class="o">=</span> <span class="n">sz</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">p</span> <span class="o">=</span> <span class="n">get_centroid</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+        <span class="n">cent</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+        <span class="n">is_centroid</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">cnt</span><span class="p">[</span><span class="n">cent</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="n">dfs1</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">.</span><span class="n">ss</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">x</span> <span class="o">:</span> <span class="n">adj</span><span class="p">[</span><span class="n">p</span><span class="p">]){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_centroid</span><span class="p">[</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">])</span><span class="k">continue</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">ff</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">p</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">k</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">;</span><span class="n">lli</span> <span class="n">w</span><span class="p">;</span>
+            <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">u</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="o">&gt;&gt;</span><span class="n">w</span><span class="p">;</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">u</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">));</span>
+            <span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">].</span><span class="n">pb</span><span class="p">(</span><span class="n">mp</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">w</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">decompose</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span><span class="n">ans</span> <span class="o">==</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">ans</span><span class="p">;</span> 
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">ans</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-02-20T00:00:00+05:30">February 20, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Centroid+Decomposition+Explained%20http%3A%2F%2Flocalhost%3A4000%2Fcentroid-decomposition-explained%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fcentroid-decomposition-explained%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fcentroid-decomposition-explained%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+            
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/KaustubhSathe" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/kaustubh-sathe-b0374917a/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Kaustubh Sathe. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
