@@ -3,9 +3,8 @@ layout: archive
 permalink: /projects/
 author_profile: true
 classes: wide
+title : Projects
 ---
-
-# Projects
 
 ## Codeforces Problem Tracker Chrome Extension
 
