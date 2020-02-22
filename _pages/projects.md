@@ -5,6 +5,8 @@ author_profile: true
 classes: wide
 ---
 
+# Projects
+
 ## Codeforces Problem Tracker Chrome Extension
 
 Created a chrome extension which keeps track of your understood but not yet implemented problems of codeforces and colors those problems as yellow.
