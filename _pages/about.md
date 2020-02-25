@@ -3,6 +3,7 @@ layout: archive
 permalink: /about/
 author_profile: true
 title: About
+classes: wide
 ---
 
 Hi! I am Kaustubh Sathe,22 years old developer,competitive programmer and a strong engineering professional 

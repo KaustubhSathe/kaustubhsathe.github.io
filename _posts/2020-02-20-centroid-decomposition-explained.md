@@ -1,6 +1,21 @@
 ---
+layout: archive
 classes: wide
+mathjax: true
 ---
+
+
+So in this post I would like to explain a beautiful divide and conquer technique used on trees called Centroid 
+Decomposition with help of few example problems. This post is inspired by [this](https://www.quora.com/q/threadsiiithyderabad/Centroid-Decomposition-of-a-Tree) original post by Tanuj Khattar. Please read that post first for the theory part of the centroid decomposition of a tree. Few important points to note are :
+
+ - When the problem says calculate/find something for all pairs of vartices (e.g $$\sum f(u,v)$$), which can be calculated naively using $$O(n^2)$$ approach, in the given tree it may be possible that the given problem can be solved using centroid decomposition.
+ - While soliving problems keep in mind that we have two trees one centroid tree and other being the original given tree
+ - With centroid decomposition we can run $$O(n)$$ DFS from each centroid in its corresponding subtree of the original tree giving us the time complexity of $$O(n*log(n)*f)$$,since $$O(n)$$ DFS from each level(at max $$log(n)$$ levels),and $$f$$ is the complexity of the data structure which we are using in the problem. So we reduced our time complexity from $$O(n^2)$$ to $$O(n*log(n)*f)$$.
+ - Remember the DFS call which we run are to made in the subtree of the original tree and not in the centroid tree.
+
+Given below is implementation of finding centroid and constructing the centroid tree.
+ 
+
 ```cpp
     #include<bits/stdc++.h>
     #define pb push_back
@@ -63,12 +78,9 @@ classes: wide
         return 0;
     }
 ```
--------------------------------------------------------------------------------------------------------------------
- - Centroid Decomposition helps us to run dfs O(n) log(n)(one from each level in centroid tree).
- - Caution : the dfs run for calculating some property must be run in the corresponding part of the original tree and not in the centroid tree.
- - This helps us to calculate some given function(sum/multiply which can vary from problem to problem) between all pairs vertices efficiently. I.e by keeping the centroid as fixed and calculating the fucntion for all paths which pass through the given centroid. When we do this for all centroid top to bottom then we can generate all the nC2 paths efficiently.
- - When the problem says calculate something for all pairs of vartices in the given tree, it is may be possible that the given problem be solved using centroid decomposition.
--------------------------------------------------------------------------------------------------------------------
+
+ 
+----------------------------------------------------------------------------------------------------------------
 
 ## Problems
 **1. https://codeforces.com/problemset/problem/321/C** 
