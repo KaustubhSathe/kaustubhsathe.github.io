@@ -24,4 +24,12 @@ Features :-
 - Browse Problems
 - Recommends Problems
 
-[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=KaustubhSathe.vscode-codeforces)
+[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=KaustubhSathe.vscode-codeforces)&nbsp;&nbsp;[Source Code](https://github.com/KaustubhSathe/Codeforces)
+
+## [Torrent-Search-Engine](https://github.com/KaustubhSathe/Torrent-Search-Engine)
+
+A torrent search engine which aggregates torrents from different torrent websites (No piracy involved).
+- Fully automated and scheduled parsers written for websites TPB, katcr, rarbag
+
+[Live Here](https://kstorrentse.herokuapp.com/)&nbsp;&nbsp;[Source Code](https://github.com/KaustubhSathe/Torrent-Search-Engine)
+
