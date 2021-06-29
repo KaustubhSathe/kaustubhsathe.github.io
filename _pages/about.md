@@ -6,7 +6,13 @@ title: About
 classes: wide
 ---
 
-Hi! I am Kaustubh Sathe,22 years old developer,competitive programmer and a strong engineering professional 
-from BITS,Pilani.
+#### :wave: ​Hi, I am Kaustubh Sathe from IN.
 
-Have a look at my [projects](/projects/), [resume](/resume.pdf) or just connect with me on [Linkedin](https://www.linkedin.com/in/kaustubh-sathe-b0374917a/). I am always excited to solve complex algorithmic and design problems with like minded people &#128522;.
+-------------
+
+- Currently working at FanCode as a Backend Engineer.
+
+  -----------------
+
+  
+
