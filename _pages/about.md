@@ -10,7 +10,9 @@ classes: wide
 
 -------------
 
-- Currently working at FanCode as a Backend Engineer.
+- Currently working at [Fancode](https://fancode.com/) as a Backend Engineer.
+
+- Also a part-time [udemy instructor](https://www.udemy.com/user/kaustubh-sathe-5/)
 
   -----------------
 
