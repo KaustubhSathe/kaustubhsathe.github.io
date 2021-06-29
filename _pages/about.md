@@ -6,7 +6,7 @@ title: About
 classes: wide
 ---
 
-#### :wave: ​Hi, I am Kaustubh Sathe from IN.
+#### ​​Hi, I am Kaustubh Sathe from IN.
 
 -------------
 
