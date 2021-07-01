@@ -6,7 +6,7 @@ title: About
 classes: wide
 ---
 
-#### ​​Hi, I am Kaustubh Sathe from IN.
+#### Hi, I am Kaustubh Sathe from IN.
 
 -------------
 
@@ -16,5 +16,5 @@ classes: wide
 
   -----------------
 
-  
+  Interests : Databases, Distributed Systems, Clean Performant Code
 
