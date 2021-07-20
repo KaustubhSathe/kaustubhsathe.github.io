@@ -16,6 +16,6 @@ classes: wide
 
   -----------------
 
-  Interests : Databases, Distributed Systems, Clean Performant Code
+  Interests : Databases, Distributed Systems, Frontend UI/UX ,Clean Performant Code
 
 Languages: C#, Java, Javascript
