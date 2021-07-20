@@ -16,8 +16,8 @@ classes: wide
 
   -----------------
   
-  Professionally working as a backend engineer but have interest accross the entire tech stack frontend web/mobile, backend, testing, devops.
+  Professionally working as a backend engineer but have interest accross the entire tech stack frontend (web/mobile), backend, testing, devops.
   <br/>
   Interests : Databases, Distributed Systems, Frontend UI/UX ,Clean Performant Code, TDD
 
-Languages: C#, Java, Javascript
+Languages: C#, Java, Javascript, Typescript, SQL
