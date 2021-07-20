@@ -15,7 +15,8 @@ classes: wide
 - Also a part-time [udemy instructor](https://www.udemy.com/user/kaustubh-sathe-5/)
 
   -----------------
-
-  Interests : Databases, Distributed Systems, Frontend UI/UX ,Clean Performant Code
+  
+  Professionally working as a backend engineer but have interest accross the entire tech stack frontend, backend, testing, devops.
+  Interests : Databases, Distributed Systems, Frontend UI/UX ,Clean Performant Code, TDD
 
 Languages: C#, Java, Javascript
