@@ -8,7 +8,6 @@ title : Projects
 
 
 
-
 ## [vscode-Codeforces](https://github.com/KaustubhSathe/Codeforces)
 A VS Code extension which lets you solve codeforces problems directly from VS code, no need of opening a browser.
 
