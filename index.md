@@ -1,8 +1,8 @@
-## Portfolio
+# Portfolio
 
 ---
 
-### Category Name 1 
+## Projects
 
 [SpreadSheet Clone](https://github.com/KaustubhSathe/spreadsheet)
 <img src="./images/spreadsheet.png?raw=true"/>
