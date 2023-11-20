@@ -4,11 +4,13 @@
 
 ## Projects
 
-[SpreadSheet Clone](https://github.com/KaustubhSathe/spreadsheet)
-<img src="./images/spreadsheet.png?raw=true"/>
+<a href="https://github.com/KaustubhSathe/spreadsheet" style="font-size: 20px;">SpreadSheet Clone</a>
+<img src="./images/spreadsheet.png"/>
+
 
 ---
-[Codeforces](https://github.com/KaustubhSathe/Codeforces)
-<img src="images/codeforces.png?raw=true"/>
+
+<a href="https://github.com/KaustubhSathe/Codeforces" style="font-size: 20px;">Codeforces</a>
+<img src="./images/codeforces.png"/>
 
 ---
