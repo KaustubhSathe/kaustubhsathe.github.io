@@ -2,7 +2,7 @@ title: Kaustubh Sathe # your name (or website title) here
 logo: "/images/profile.jpg?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
   Software Engineer
-  <br>
+  <br><br>
   <a href="https://www.linkedin.com/in/kaustubh-s-b0374917a/">View My LinkedIn Profile</a>
   
 remote_theme: pages-themes/minimal@v0.2.0
